@@ -1,0 +1,6 @@
+bin
+sox
+x264
+ffmpeg
+*.bz2
+**/.DS_Store
