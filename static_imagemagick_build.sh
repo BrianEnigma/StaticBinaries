@@ -23,7 +23,7 @@ fi
 
 # Build it
 
-if [ ! -f ImageMagick/utilities/convert ]; then
+if [ ! -f ImageMagick/utilities/magick ]; then
     make
     cd ..
 fi
@@ -31,7 +31,7 @@ fi
 # Copy to bin folder
 
 mkdir -p bin
-find ImageMagick/utilities -type f -executable -exec cp \{\} ../bin/ \;
+find ImageMagick/utilities -type f -executable -exec cp \{\} ./bin/ \;
 
 # Print size
 
