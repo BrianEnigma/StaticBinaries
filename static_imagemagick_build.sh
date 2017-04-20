@@ -36,7 +36,7 @@ find ImageMagick/utilities -type f -executable -exec cp \{\} ../bin/ \;
 # Print size
 
 echo -n 'File size: '
-du -sh bin/convert
+du -sh bin/magick
 
 # Print library dependencies
 
@@ -44,13 +44,13 @@ if [ -f /usr/bin/ldd ]; then
     # Linux
     echo ''
     echo 'Dependencies:'
-    ldd bin/convert
+    ldd bin/magick
 fi
 
 if [ -f /usr/bin/otool ]; then
     # Mac
     echo ''
     echo 'Dependencies:'
-    otool -L bin/convert
+    otool -L bin/magick
 fi
 
