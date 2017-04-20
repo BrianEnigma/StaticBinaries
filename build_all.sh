@@ -12,5 +12,7 @@ sudo yum -y install yasm zlib-devel
 
 # Static applications
 
-#TODO
+./static_imagemagick_build.sh
+./static_sox_build.sh
+./static_ffmpeg_build.sh
 
