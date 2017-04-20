@@ -2,5 +2,8 @@ bin
 sox
 x264
 ffmpeg
+libpng
+libjpeg
 *.bz2
+*.gz
 **/.DS_Store

@@ -58,7 +58,7 @@ cp ./ffmpeg/ffserver ./bin
 # Print size
 
 echo -n 'File size: '
-du -sh ffmpeg/ffmpeg
+du -sh bin/ffmpeg
 
 # Print library dependencies
 
@@ -66,13 +66,13 @@ if [ -f /usr/bin/ldd ]; then
     # Linux
     echo ''
     echo 'Dependencies:'
-    ldd ffmpeg/ffmpeg
+    ldd bin/ffmpeg
 fi
 
 if [ -f /usr/bin/otool ]; then
     # Mac
     echo ''
     echo 'Dependencies:'
-    otool -L ffmpeg/ffmpeg
+    otool -L bin/ffmpeg
 fi
 
