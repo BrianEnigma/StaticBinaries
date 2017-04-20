@@ -33,6 +33,8 @@ if [ ! -f libpng/lib/libpng.a ]; then
     cd libpng
     make
     make install
+    mkdir -p lib
+    cp ./.libs/* ./lib/
     cd ..
 fi
 

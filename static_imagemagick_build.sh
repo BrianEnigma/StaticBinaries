@@ -14,7 +14,11 @@ fi
 if [ ! -f ImageMagick/Makefile ]; then
     cd ImageMagick
     git checkout $GIT_TAG
-    ./configure --disable-shared --enable-static
+    ./configure --disable-shared --enable-static --enable-delegate-build \
+        CPPFLAGS="-I`pwd`/../libpng/include -I`pwd`/../libjpeg/include" \
+        CFLAGS="-I`pwd`/../libpng/include -I`pwd`/../libjpeg/include" \
+        LDFLAGS="-L`pwd`/../libpng/lib -L`pwd`/../libjpeg/lib" \
+        PKG_CONFIG_PATH=/home/ec2-user/StaticBinaries/ImageMagick/../libpng
 fi
 
 # Build it

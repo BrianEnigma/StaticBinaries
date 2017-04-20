@@ -32,9 +32,11 @@ if [ ! -f libjpeg/lib/libjpeg.a ]; then
     make LIBTOOL=libtool
     mkdir -p bin
     mkdir -p lib
+    mkdir -p include
     mkdir -p man/man1
     make install LIBTOOL=libtool
     cp .libs/libjpeg.a ./lib/
+    cp *.h ./include/
     cd ..
 fi
 
