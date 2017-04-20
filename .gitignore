@@ -4,6 +4,7 @@ x264
 ffmpeg
 libpng
 libjpeg
+ImageMagick
 *.bz2
 *.gz
 **/.DS_Store
