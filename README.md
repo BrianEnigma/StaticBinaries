@@ -33,6 +33,9 @@ Why would you want to do this? Two reasons:
 
 Voila! You have a collection of static binaries in your bucket. You can then have other EC2 instances grab them, or you can manually grab them and package them into a zip to send to Lambda.
 
+## TODO
 
+- Figure out the ImageMagick tools that don't seem to want to statically build.
+- Use CloudFormation and Roles to automatically create bucket, spin up instance, compile, and push to bucket?
 
 

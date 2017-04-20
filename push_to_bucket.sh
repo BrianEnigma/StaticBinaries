@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BINS="ffmpeg ffprobe ffserver sox magick"
+BINS="ffmpeg ffprobe ffserver sox magick mediainfo"
 
 if [ -z "$3" ]; then
     echo "USAGE: ./push_to_bucket.sh {access key id} {secret} {bucket} {region}"
