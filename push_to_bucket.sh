@@ -2,7 +2,7 @@
 
 BINS="ffmpeg ffprobe ffserver sox magick mediainfo MP4Box MP42TS MP4Client"
 
-if [ -z "$3" ]; then
+if [ -z "$4" ]; then
     echo "USAGE: ./push_to_bucket.sh {access key id} {secret} {bucket} {region}"
     echo "EXAMPLE: ./push_to_bucket.sh AKIAIOSFODNN7EXAMPLE wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY mybucket us-west-2"
     exit 1

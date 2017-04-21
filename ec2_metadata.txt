@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo yum -y install git
+
+git clone https://github.com/BrianEnigma/StaticBinaries.git
+
+cd StaticBinaries
+
+#./build_all.sh > output.txt
+./fake_build_all.sh > output.txt
+
+./push_to_bucket.sh brianenigma-binaries us-west-2
+
