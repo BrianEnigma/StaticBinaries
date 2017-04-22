@@ -7,6 +7,7 @@ This is a collection of scripts that can be run on an EC2 instance and which wil
 - libpng
 - libjpeg
 - ffmpeg/ffprobe/ffserver, with its own static copy of x264
+- MP4Box
 - ImageMagick
 - sox
 
