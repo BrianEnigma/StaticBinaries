@@ -18,10 +18,10 @@ for f in $BINS; do
 done
 
 for f in ./bin/*; do
-    aws --region "$4" s3 cp $f s3://$3
+    aws --region "$2" s3 cp $f s3://$1
 done
 
 if [ -f output.txt ]; then
-    aws --region "$4" s3 cp output.txt s3://output.txt
+    aws --region "$2" s3 cp output.txt s3://$1/output.txt
 fi
 
