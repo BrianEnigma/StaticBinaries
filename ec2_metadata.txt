@@ -13,10 +13,12 @@ touch /tmp/03-build
 
 cd StaticBinaries
 
-#./build_all.sh > output.txt
-./fake_build_all.sh >> output.txt
+./build_all.sh > output.txt
+#./fake_build_all.sh >> output.txt
 
 touch /tmp/04-upload
 
 ./push_to_bucket_via_role.sh brianenigma-binaries us-west-2
+
+#sudo shutdown -h now
 
