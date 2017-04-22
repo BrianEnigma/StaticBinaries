@@ -1,13 +1,22 @@
 #!/bin/bash
 
+touch /tmp/01-yum-update
+
+sudo yum -y update
 sudo yum -y install git
 
+touch /tmp/02-git-clone
+
 git clone https://github.com/BrianEnigma/StaticBinaries.git
+
+touch /tmp/03-build
 
 cd StaticBinaries
 
 #./build_all.sh > output.txt
 ./fake_build_all.sh > output.txt
 
-./push_to_bucket.sh brianenigma-binaries us-west-2
+touch /tmp/04-upload
+
+./push_to_bucket_via_role.sh brianenigma-binaries us-west-2
 
