@@ -30,7 +30,7 @@ Why would you want to do this? Two reasons:
    3. It next builds the tools.
    4. The tools ultimately end up in the ./bin/ folder.
 3. `./push_to_bucket.sh`
-   1. This takes four parameters: your access key ID, your secret, your bucket name, and your region.
+   1. This takes four parameters: your access key ID, your secret, your bucket name, and your region. If you have your IAM set up such that your EC2 instance is in a role that can write to an S3 bucket, then you can use the `push_to_bucket_via_role.sh` script, which only takes the bucket name and region. In this case, the account permissions are implied — inherited from the instance's role.
 
 Voila! You have a collection of static binaries in your bucket. You can then have other EC2 instances grab them, or you can manually grab them and package them into a zip to send to Lambda.
 
