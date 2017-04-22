@@ -13,7 +13,6 @@ fi
 for f in $BINS; do
     if [ ! -f bin/$f ]; then
         echo "Error: missing expected binary ./bin/$f"
-        exit 1
     fi
 done
 
