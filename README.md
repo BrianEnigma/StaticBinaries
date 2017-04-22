@@ -38,4 +38,32 @@ Voila! You have a collection of static binaries in your bucket. You can then hav
 - Figure out the ImageMagick tools that don't seem to want to statically build.
 - Use CloudFormation and Roles to automatically create bucket, spin up instance, compile, and push to bucket?
 
+## Notes
+
+Policy for Role allowing EC2 to write to S3 bucket:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:DeleteObjectVersion",
+                "s3:GetBucketPolicy",
+                "s3:GetBucketTagging",
+                "s3:GetBucketVersioning",
+                "s3:GetBucketWebsite",
+                "s3:GetObject",
+                "s3:GetObjectVersion",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::brianenigma-binaries/*"
+            ]
+        }
+    ]
+}
+```
 

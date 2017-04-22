@@ -7,14 +7,14 @@ sudo yum -y install git
 
 touch /tmp/02-git-clone
 
-git clone https://github.com/BrianEnigma/StaticBinaries.git
+git clone https://github.com/BrianEnigma/StaticBinaries.git > output.txt
 
 touch /tmp/03-build
 
 cd StaticBinaries
 
 #./build_all.sh > output.txt
-./fake_build_all.sh > output.txt
+./fake_build_all.sh >> output.txt
 
 touch /tmp/04-upload
 
