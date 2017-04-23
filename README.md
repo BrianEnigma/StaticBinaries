@@ -22,49 +22,14 @@ Why would you want to do this? Two reasons:
 
 ## How?
 
-1. Copy or `git clone` this repository to your EC2 instance.
-   1. You may have to `sudo yum install -y git` to first install the git client.
-2. `./build_all.sh`
-   1. This first installs the build tools.
-   2. It then builds the dependencies.
-   3. It next builds the tools.
-   4. The tools ultimately end up in the ./bin/ folder.
-3. `./push_to_bucket.sh`
-   1. This takes four parameters: your access key ID, your secret, your bucket name, and your region. If you have your IAM set up such that your EC2 instance is in a role that can write to an S3 bucket, then you can use the `push_to_bucket_via_role.sh` script, which only takes the bucket name and region. In this case, the account permissions are implied — inherited from the instance's role.
+| Manual Building                          | CloudFormation Building                  |
+| ---------------------------------------- | ---------------------------------------- |
+| To manually build, all you need to do is instantiate an EC2 instance, check out the git repository, then run the build script. When you're finished, you can either `scp` the binaries from your instance, or ise the `push_to_bucket.sh` script to push the results to an S3 bucket. | For a one (or just a few more clicks over one) click building, there are two CloudFormation templates. The fist sets up an S3 bucket and a IAM Role that allows write-only access to the bucket. The second kicks off an EC2 instance to build the binaries and push them to the S3 bucket |
+| For manual building, see [Manual_Builds.md](Manual_Builds.md), | For CloudFormation building, see [CloudFormation/README.md](CloudFormation/README.md). |
 
-Voila! You have a collection of static binaries in your bucket. You can then have other EC2 instances grab them, or you can manually grab them and package them into a zip to send to Lambda.
+
 
 ## TODO
 
 - Figure out the ImageMagick tools that don't seem to want to statically build.
-- Use CloudFormation and Roles to automatically create bucket, spin up instance, compile, and push to bucket?
-
-## Notes
-
-Policy for Role allowing EC2 to write to S3 bucket:
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:DeleteObject",
-                "s3:DeleteObjectVersion",
-                "s3:GetBucketPolicy",
-                "s3:GetBucketTagging",
-                "s3:GetBucketVersioning",
-                "s3:GetBucketWebsite",
-                "s3:GetObject",
-                "s3:GetObjectVersion",
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::brianenigma-binaries/*"
-            ]
-        }
-    ]
-}
-```
 
