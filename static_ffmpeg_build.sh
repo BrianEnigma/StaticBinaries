@@ -2,9 +2,9 @@
 
 # Where to find the things
 
-X264_FILENAME=x264-snapshot-20160502-2245-stable.tar.bz2
+X264_FILENAME=x264-snapshot-20180108-2245-stable.tar.bz2
 X264_URL=ftp://ftp.videolan.org/pub/x264/snapshots/$X264_FILENAME
-FFMPEG_FILENAME=ffmpeg-3.0.2.tar.bz2
+FFMPEG_FILENAME=ffmpeg-3.4.1.tar.bz2
 FFMPEG_URL=http://ffmpeg.org/releases/$FFMPEG_FILENAME
 
 # Download the things
