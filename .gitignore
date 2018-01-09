@@ -6,6 +6,7 @@ ffmpeg
 libpng
 libjpeg
 ImageMagick
+MediaInfo
 *.bz2
 *.gz
 **/.DS_Store

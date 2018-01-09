@@ -1,7 +1,8 @@
 #!/bin/bash
 
-MEDIAINFO_URL=https://mediaarea.net/download/binary/mediainfo/0.7.94/MediaInfo_CLI_0.7.94_GNU_FromSource.tar.bz2
-MEDIAINFO_FILE=MediaInfo-0.7.94.tar.bz2
+VERSION=17.12
+MEDIAINFO_URL=https://mediaarea.net/download/binary/mediainfo/${VERSION}/MediaInfo_CLI_${VERSION}_GNU_FromSource.tar.bz2
+MEDIAINFO_FILE=MediaInfo-${VERSION}.tar.bz2
 
 if [ ! -f $MEDIAINFO_FILE ]; then
     wget -O $MEDIAINFO_FILE "$MEDIAINFO_URL"
