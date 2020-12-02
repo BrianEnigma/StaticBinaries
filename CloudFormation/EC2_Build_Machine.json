@@ -537,7 +537,7 @@
                             "touch /tmp/01-yum-update\n",
                              
                             "sudo yum -y update\n",
-                            "sudo yum -y install git\n",
+                            "sudo yum -y install git mercurial cmake\n",
                             
                             "touch /tmp/02-git-clone\n",
                             

@@ -2,6 +2,7 @@ bin
 awsbin
 sox
 x264
+x265
 ffmpeg
 libpng
 libjpeg

@@ -5,6 +5,9 @@
 X264_FILENAME=x264
 X264_URL=https://code.videolan.org/videolan/x264.git
 X264_STABLE_SHA=d198931a63049db1f2c92d96c34904c69fde8117
+X265_FILENAME=x265
+X265_URL=http://hg.videolan.org/x265
+X265_STABLE_BRANCH=3.4
 FFMPEG_FILENAME=ffmpeg-4.3.1.tar.bz2
 FFMPEG_URL=http://ffmpeg.org/releases/$FFMPEG_FILENAME
 
@@ -14,6 +17,13 @@ if [ ! -d "$X264_FILENAME" ]; then
     git clone "$X264_URL"
     cd "$X264_FILENAME"
     git checkout "$X264_STABLE_SHA"
+    cd ..
+fi
+
+if [ ! -d "$X25_FILENAME" ]; then
+    hg clone "$X265_URL"
+    cd "$X265_FILENAME"
+    hg update "-r$X265_STABLE_BRANCH"
     cd ..
 fi
 
@@ -34,6 +44,17 @@ if [ ! -f x264/libx264.a ]; then
     cd ..
 fi
 
+# Build x265 static library, if not already built
+
+if [ ! -f x265/libx265.a ]; then
+    echo "Configuring x265"
+    cd x265
+    ./configure --enable-static --disable-asm --prefix=.
+    make
+    make install
+    cd ..
+fi
+
 # Build ffmpeg static binary, if not already built
 
 if [ ! -f ffmpeg/ffmpeg ]; then
@@ -44,9 +65,9 @@ if [ ! -f ffmpeg/ffmpeg ]; then
     echo "Configuring ffmpeg"
     ./configure --disable-shared --enable-static \
         --disable-asm \
-        --enable-gpl --enable-libx264 --enable-pthreads \
-        --extra-cflags="-I$HERE/x264/include" \
-        --extra-ldflags="-I$HERE/x264/include -L$HERE/x264/lib" \
+        --enable-gpl --enable-libx264 --enable-libx265 --enable-pthreads \
+        --extra-cflags="-I$HERE/x264/include -I$HERE/x265/include" \
+        --extra-ldflags="-I$HERE/x264/include -I$HERE/x265/include -L$HERE/x264/lib -L$HERE/x265/lib" \
         --extra-libs=-ldl
     make
     cd ..
