@@ -4,8 +4,8 @@
 
 X264_FILENAME=x264
 X264_URL=https://code.videolan.org/videolan/x264.git
-X264_STABLE_SHA=d198931a63049db1f2c92d96c34904c69fde8117
-FFMPEG_FILENAME=ffmpeg-4.3.1.tar.bz2
+X264_STABLE_SHA=31e19f92f00c7003fa115047ce50978bc98c3a0d
+FFMPEG_FILENAME=ffmpeg-6.1.tar.bz2
 FFMPEG_URL=http://ffmpeg.org/releases/$FFMPEG_FILENAME
 
 # Download the things
