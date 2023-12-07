@@ -37,9 +37,9 @@ fi
 # Build ffmpeg static binary, if not already built
 
 if [ ! -f ffmpeg/ffmpeg ]; then
-    #rm -rf ffmpeg
-    #mkdir ffmpeg
-    #tar -jxvf $FFMPEG_FILENAME -C ffmpeg --strip-components 1
+    rm -rf ffmpeg
+    mkdir ffmpeg
+    tar -jxvf $FFMPEG_FILENAME -C ffmpeg --strip-components 1
     cd ffmpeg
     echo "Configuring ffmpeg"
     PKG_CONFIG_PATH=$HERE/x264 ./configure --disable-shared --enable-static \
